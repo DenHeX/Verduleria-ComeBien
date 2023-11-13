@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Inicio de Sesión</title>
+    <!-- Enlaces a los estilos de Bootstrap y Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-rI5p+ss5wX8G2H6O0zOv0D7yYaz2cseFgihWZ3h5PHWiDS5LXXY2OrON6zfv5uPCeN02+rNA5K3S2f0pPf0km5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body style="background-color: #e3f2e8;">
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card" style="background-color: #c1e0c7;">
+                <div class="card-header" style="background-color: #76b752;">
+                    <h3 class="text-center text-white">Inicio de Sesión</h3>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Nombre de Usuario</label>
+                            <input type="text" class="form-control" id="username" placeholder="Ingresa tu nombre de usuario">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="password" placeholder="Ingresa tu contraseña">
+                                <button class="btn btn-outline-secondary" type="button" id="showPassword" onclick="togglePassword()">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="d-grid mb-3">
+                            <button type="submit" class="btn btn-success">Iniciar Sesión</button>
+                        </div>
+                        <div class="text-center">
+                            <a href="#" style="color: #76b752;">¿Olvidaste tu contraseña?</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Enlaces a los scripts de Bootstrap y jQuery -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<!-- Script para mostrar/ocultar la contraseña -->
+<script>
+    function togglePassword() {
+        var passwordField = document.getElementById("password");
+        var showPasswordButton = document.getElementById("showPassword");
+
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+            showPasswordButton.innerHTML = '<i class="fas fa-eye-slash"></i>';
+        } else {
+            passwordField.type = "password";
+            showPasswordButton.innerHTML = '<i class="fas fa-eye"></i>';
+        }
+    }
+</script>
+
+</body>
+</html>
