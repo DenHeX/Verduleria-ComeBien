@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,54 +8,60 @@
     <!-- Enlaces a los estilos de Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body style="background-color: #e3f2e8;">
 
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card" style="background-color: #c1e0c7;">
-                <div class="card-header" style="background-color: #76b752;">
-                    <h3 class="text-center text-white">Página de Pago</h3>
-                </div>
-                <div class="card-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="cardNumber" class="form-label">Número de Tarjeta</label>
-                            <input type="text" class="form-control" id="cardNumber" placeholder="Ingrese el número de tarjeta">
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label for="expiryDate" class="form-label">Fecha de Vencimiento</label>
-                                <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card" style="background-color: #c1e0c7;">
+                    <div class="card-header" style="background-color: #76b752;">
+                        <h3 class="text-center text-white">Página de Pago</h3>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="cardNumber" class="form-label">Número de Tarjeta</label>
+                                <input type="text" class="form-control" id="cardNumber"
+                                    placeholder="Ingrese el número de tarjeta">
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="cvv" class="form-label">CVV</label>
-                                <input type="text" class="form-control" id="cvv" placeholder="CVV">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="expiryDate" class="form-label">Fecha de Vencimiento</label>
+                                    <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="cvv" class="form-label">CVV</label>
+                                    <input type="text" class="form-control" id="cvv" placeholder="CVV">
+                                </div>
                             </div>
-                        </div>
-                        <div class="d-grid mb-3">
-                            <button type="button" class="btn btn-success" onclick="processPayment()">Pagar</button>
-                        </div>
-                        <!-- Agregado: Botón para volver -->
-                        <div class="text-center">
-                            <a href="index.html" class="btn btn-secondary">Volver</a>
-                        </div>
-                    </form>
+                            <div class="d-grid mb-3">
+                                <button type="button" class="btn btn-success" onclick="processPayment()">Pagar</button>
+                            </div>
+                            <!-- Agregado: Botón para volver -->
+                            <div class="text-center">
+                                <a href="index.html" class="btn btn-secondary">Volver</a>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- Enlaces a los scripts de Bootstrap y jQuery -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script>
-    function processPayment() {
-        // Aquí deberías implementar la lógica de procesamiento de pago con una pasarela segura.
-        alert("¡Pago procesado con éxito!");
-    }
-</script>
+    <!-- Enlaces a los scripts de Bootstrap y jQuery -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        function processPayment() {
+            alert("¡Pago procesado con éxito!");
+
+            setTimeout(function () {
+                window.location.href = 'pagina_principal.html';
+            }, 3000);
+        }
+    </script>
 
 </body>
+
 </html>
