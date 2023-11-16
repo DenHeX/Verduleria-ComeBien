@@ -49,16 +49,23 @@
         </div>
     </div>
 
-    <!-- Enlaces a los scripts de Bootstrap y jQuery -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
         function processPayment() {
-            alert("¡Pago procesado con éxito!");
+            var cardNumber = document.getElementById('cardNumber').value;
+            var expiryDate = document.getElementById('expiryDate').value;
+            var cvv = document.getElementById('cvv').value;
 
-            setTimeout(function () {
-                window.location.href = 'pagina_principal.html';
-            }, 3000);
+            if (cardNumber !== '' && expiryDate !== '' && cvv !== '') {
+                alert("¡Pago procesado con éxito!");
+
+                setTimeout(function () {
+                    window.location.href = 'pagina_principal.html';
+                }, 1000);
+            } else {
+                alert('Por favor, complete todos los campos antes de realizar el pago.');
+            }
         }
     </script>
 
