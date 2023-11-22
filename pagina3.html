@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Cambia la fuente del cuerpo y los títulos a Bootstrap Icons -->
+    <style>
+        body {
+            font-family: 'Bootstrap Icons', sans-serif; /* Cambiada a la fuente Bootstrap Icons */
+        }
+
+        .header {
+            background-color: #76b752;
+            color: #fff;
+            text-align: center;
+            padding: 5px;
+            font-family: 'Bootstrap Icons', sans-serif; /* Cambiada a la fuente Bootstrap Icons */
+        }
+
+        /* Agrega estilos adicionales aquí si es necesario */
+        .product-container {
+            max-height: 600px; /* Altura máxima del contenedor con barra de desplazamiento */
+          
+        }
+
+        .card {
+            margin-bottom: 20px; /* Espacio entre tarjetas */
+        }
+
+        .card img {
+            max-width: 50%;
+            height: auto;
+            border-radius: 4px;
+            padding: 20px;
+            align-items: center;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .card-text {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .card-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #76b752; /* Color azul Bootstrap por defecto */
+        }
+
+        .col-md-4{
+            display: flex;
+            justify-content: center;
+        }
+        
+        .btnadd{
+            background-color: #76b752;
+            border-radius: 10px;
+            font-family: "Lilita One";
+            color: #fff;
+        }
+
+
+
+
+        .toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: transparent;
+            border: none;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 2; /* Asegura que el botón esté en la capa superior */
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: -250px;
+            padding-top: 60px;
+            background-color: #76b752;
+            color: white;
+            text-align: center;
+            transition: 0.5s;
+        }
+
+        .sidebar a {
+            color: #fff;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .sidebar a:hover {
+            background-color: #45a050;
+        }
+
+        .container {
+            margin-top: 80px;
+        }
+    </style>
+
+    <title>Verdulera - Tienda de productos</title>
+</head>
+<body>
+    <button class="toggle" onclick="toggleSidebar()">☰</button>
+    <div class="header">
+        <div class="sidebar" id="mySidebar">
+            <a href="Pagina1.html">Frutas</a>
+            <a href="pagina2.html">Verduras</a>
+            <a href="#">Vegetales</a>
+            <a href="pagina3.html">Hortalizas</a>
+            <a href="Carrito.html">Carrito</a>
+            <a href="Contacto.html">Contacto</a>
+        </div>
+        <h1>Hortalizas</h1>
+    </div>
+
+       <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12 product-container">
+                <!-- Contenedor con barra de desplazamiento -->
+                <div class="card">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="img/espinaca.png" class="card-img" alt="Producto 1">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Espinaca</h5>
+                                <p class="card-text">Espinaca Fresca</p>
+                                <p class="card-price">$4</p>
+                                <button class="btnadd">Agregar al carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="img/cebolla.png" class="card-img" alt="Producto 2">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Cebolla</h5>
+                                <p class="card-text">Cebolla Fresca</p>
+                                <p class="card-price">$5</p>
+                                <button class="btnadd">Agregar al carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="img/papas.jpeg" class="card-img" alt="Producto 2">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Papas</h5>
+                                <p class="card-text">Papas </p>
+                                <p class="card-price">$6</p>
+                                <button class="btnadd">Agregar al carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        var sidebarVisible = false;
+
+        function toggleSidebar() {
+            var sidebar = document.getElementById("mySidebar");
+            var toggleButton = document.querySelector(".toggle");
+
+            sidebarVisible = !sidebarVisible;
+
+            if (sidebarVisible) {
+                sidebar.style.left = "0";
+            } else {
+                sidebar.style.left = "-250px";
+            }
+        }
+    </script>
+</body>
+</html>

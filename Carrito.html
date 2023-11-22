@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #e3f2e8;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .card {
+            background-color: #d9fada;
+            margin-bottom: 20px;
+        }
+
+        .card-header {
+            background-color: #76b752;
+            color: white;
+        }
+
+        .btn-back {
+            margin-bottom: 20px;
+        }
+
+        .small-image {
+            max-width: 120px;
+            max-height: 120px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-center">Carrito de Compras</h3>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="text-center mb-4">Realizar Compra</h5>
+                        <div class="mb-3 row">
+                            <div class="col-md-6">
+                                <label for="customerName" class="form-label">Nombre:</label>
+                                <input type="text" class="form-control" id="customerName">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="customerEmail" class="form-label">Correo Electrónico:</label>
+                                <input type="email" class="form-control" id="customerEmail">
+                            </div>
+                        </div>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th class="text-center align-middle">Nombre</th>
+                                    <th class="text-center align-middle">Precio</th>
+                                    <th class="text-center align-middle">Cantidad</th>
+                                    <th class="text-center align-middle">Subtotal</th>
+                                    <th class="text-center align-middle">Eliminar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center align-middle"><img src="imagenes/1.jpg" class="small-image">
+                                    </td>
+                                    <td class="text-center align-middle">Brócoli</td>
+                                    <td class="text-center align-middle">₡1,800</td>
+                                    <td class="text-center align-middle">8</td>
+                                    <td class="text-center align-middle">₡14,400</td>
+                                    <td class="text-center align-middle"><button class="btn btn-danger delete-row">X</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center align-middle"><img src="imagenes/2.jpg" class="small-image">
+                                    </td>
+                                    <td class="text-center align-middle">Lechuga</td>
+                                    <td class="text-center align-middle">₡350</td>
+                                    <td class="text-center align-middle">2</td>
+                                    <td class="text-center align-middle">₡700</td>
+                                    <td class="text-center align-middle"><button class="btn btn-danger delete-row">X</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center align-middle"><img src="imagenes/3.jpg" class="small-image">
+                                    </td>
+                                    <td class="text-center align-middle">Manzana</td>
+                                    <td class="text-center align-middle">₡580</td>
+                                    <td class="text-center align-middle">6</td>
+                                    <td class="text-center align-middle">3,480</td>
+                                    <td class="text-center align-middle"><button class="btn btn-danger delete-row">X</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="row">
+                            <div class="col-md-6">
+                            </div>
+                            <div class="col-md-6 text-end">
+                                <strong>Total: <span id="totalAmount">₡18,580</span></strong>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                            </div>
+                            <div class="col-md-6 text-end">
+                                <a href="pago.html" class="btn btn-primary">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.delete-row').on('click', function () {
+                var confirmation = confirm("¿Estás seguro que quieres eliminar este producto?");
+                if (confirmation) {
+                    var row = $(this).closest('tr');
+                    row.remove();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
