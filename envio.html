@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Come Bien</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        h2 {
+            color: #76b752;
+        }
+
+        label {
+            color: #333;
+        }
+
+        .btn-primary {
+            background-color: #76b752;
+            border: 1px solid #76b752;
+        }
+
+        .btn-primary:hover {
+            background-color: #45a050;
+            border: 1px solid #45a050;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <h2 class="mb-4">Envio</h2>
+        <form action="Pago.html">
+            <div class="form-group">
+                <label for="opcionEntrega">Opción de Entrega:</label>
+                <select class="form-control" id="opcionEntrega" required>
+                    <option value="recoger">Recoger en la Verdulería</option>
+                    <option value="domicilio">Entrega a Domicilio</option>
+                </select>
+            </div>
+
+            <div class="form-group" id="direccionFormGroup" style="display: none;">
+                <label for="direccion">Dirección de Entrega:</label>
+                <input type="text" class="form-control" id="direccion" placeholder="Ingrese la dirección de entrega">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Pagar</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var opcionEntregaSelect = document.getElementById('opcionEntrega');
+            var direccionFormGroup = document.getElementById('direccionFormGroup');
+            var direccionInput = document.getElementById('direccion');
+
+            opcionEntregaSelect.addEventListener('change', function () {
+                if (opcionEntregaSelect.value === 'domicilio') {
+                    direccionFormGroup.style.display = 'block';
+                    direccionInput.required = true;
+                } else {
+                    direccionFormGroup.style.display = 'none';
+                    direccionInput.required = false;
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
