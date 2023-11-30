@@ -7,12 +7,18 @@
     <title>Página de Inicio de Sesión</title>
     <!-- Enlaces a los estilos de Bootstrap y Font Awesome -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-rI5p+ss5wX8G2H6O0zOv0D7yYaz2cseFgihWZ3h5PHWiDS5LXXY2OrON6zfv5uPCeN02+rNA5
-        K3S2f0pPf0km5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-rI5p+ss5wX8G2H6O0zOv0D7yYaz2cseFgihWZ3h5PHWiDS5LXXY2OrON6zfv5uPCeN02+rNA5
+        K3S2f0pF0km5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body style="background-color: #e3f2e8;">
-
+    <header>
+        <div class="text-center">
+            <img src="imagenes/Logo.png" alt="Logo de la página" style="width: 100px; height: 100px;">
+            <h2>Come Bien</h2>
+        </div>
+    </header>
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -44,10 +50,14 @@
                                 </button>
                             </div>
                             <div class="d-grid mb-3">
+                                <button type="submit" class="btn" style="background-color: #007bff; color: #fff;">
+                                    Iniciar Sesión como Administrador
+                                </button>
+                            </div>
+                            <div class="d-grid mb-3">
                                 <a href="Crear_Cuenta.html" class="btn"
                                     style="background-color: #45a050; color: #fff;">Agregar cuenta</a>
                             </div>
-                            <!-- Nueva sección para el botón de volver al menú principal -->
                             <div class="d-grid mb-3">
                                 <a href="Pagina_Principal.html" class="btn btn-secondary">
                                     Volver al Menú Principal
@@ -56,14 +66,13 @@
                             <div class="text-center">
                                 <a href="Contrasena.html" style="color: #76b752;">¿Olvidaste tu contraseña?</a>
                             </div>
-
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
+
     <!-- Enlaces a los scripts de Bootstrap y jQuery -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -82,7 +91,6 @@
             }
         }
     </script>
-
 </body>
 
 </html>
