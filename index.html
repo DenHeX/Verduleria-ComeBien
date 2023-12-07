@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Come Bien - Verdulería</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* Estilos CSS existentes */
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: -250px;
+            background-color: #76b752;
+            padding-top: 30px;
+            color: white;
+            text-align: center;
+            transition: 0.5s;
+        }
+
+        .sidebar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+            text-align: left;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+
+        .sidebar a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidebar-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .sidebar a.btn-primary {
+            width: 100%;
+            margin-top: 5px;
+        }
+
+        .top-buttons {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            transition: 0.5s;
+        }
+
+        .top-buttons.sticky {
+            top: 60px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .top-buttons .btn {
+            margin-left: 10px;
+            background-color: #d9fada;
+        }
+
+        .content {
+            margin-left: 0;
+            padding: 16px;
+            transition: 0.5s;
+            text-align: center;
+        }
+
+        .btn-dark {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 2;
+        }
+
+        .card {
+            background-color: #d9fada;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-title {
+            color: #4CAF50;
+        }
+
+        .btn-primary {
+            background-color: #76b752;
+            border: 1px solid #76b752;
+        }
+
+        .btn-primary:hover {
+            background-color: #45a050;
+            border: 1px solid #45a050;
+        }
+
+        .circle-card {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+        }
+
+        .circle-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .circle-card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.6);
+            text-align: left;
+            transition: 0.3s;
+            transform: translateY(0);
+        }
+
+        .circle-card-content p {
+            margin: 0;
+            color: #333;
+        }
+
+        .featured-products {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .featured-products .row {
+            display: flex;
+            justify-content: center;
+        }
+
+        .featured-products .col-md-3 {
+            text-align: center;
+        }
+
+        .add-to-cart-btn {
+            margin-top: 5px;
+            padding: 5px 10px;
+        }
+    </style>
+
+    <script src="https://kit.fontawesome.com/xxxxxxxxxx.js" crossorigin="anonymous"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var topButtons = document.querySelector('.top-buttons');
+            var prevScrollPos = window.pageYOffset;
+
+            window.onscroll = function () {
+                var currentScrollPos = window.pageYOffset;
+
+                if (prevScrollPos > currentScrollPos) {
+                    topButtons.style.top = "10px";
+                } else {
+                    topButtons.style.top = "-60px";
+                }
+
+                prevScrollPos = currentScrollPos;
+            };
+        });
+
+        function toggleSidebar() {
+            var sidebar = document.getElementById('sidebar');
+            var content = document.querySelector('.content');
+
+            if (sidebar.style.left === '0px') {
+                sidebar.style.left = '-250px';
+                content.style.marginLeft = '0';
+            } else {
+                sidebar.style.left = '0px';
+                content.style.marginLeft = '250px';
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="text-center">
+            <img src="imagenes/Logo.png" alt="Logo de la página" style="width: 100px; height: 100px;">
+        </div>
+    </header>
+
+    <style>
+        .icon {
+            font-size: 24px;
+            margin-left: 5px;
+        }
+    </style>
+
+    <div class="top-buttons">
+        <button class="btn btn-light">
+            Buscar
+            <span class="bi bi-search icon"></span>
+        </button>
+        <a href="Inicio_Sesion.html" class="btn btn-light">
+            <i class="bi bi-person-circle icon"></i>
+        </a>
+    </div>
+
+    <button class="btn btn-dark" onclick="toggleSidebar()">☰</button>
+
+    <div class="sidebar" id="sidebar">
+        <p style="margin-bottom: 0px; font-size: 24px;">Verdulería</p>
+        <h2 style="margin-bottom: 30px;">"Come Bien"</h2>
+        <a href="index.html" class="btn btn-primary" style="font-size: 22px;"><i class="bi bi-house"></i>
+            Inicio</a>
+        <a href="Pagina1.html" class="btn btn-primary" style="font-size: 22px;">Frutas</a>
+        <a href="pagina2.html" class="btn btn-primary" style="font-size: 22px;">Verduras</a>
+        <a href="pagina3.html" class="btn btn-primary" style="font-size: 22px;">Vegetales</a>
+        <a href="pagina4.html" class="btn btn-primary" style="font-size: 22px;">Hortalizas</a>
+        <a href="producto.html" class="btn btn-primary" style="font-size: 22px;"><i class="bi bi-clipboard2-plus"></i>
+            Agregar Producto</a>
+        <div class="sidebar-bottom">
+            <a href="carrito.html" class="btn btn-primary" style="font-size: 22px;"><i class="bi bi-cart3"></i>
+                Carrito</a>
+            <a href="Perfil.html" class="btn btn-primary" style="font-size: 22px;"><i class="bi bi-person"></i>
+                Cuenta</a>
+            <a href="Contacto.html" class="btn btn-primary" style="font-size: 22px;"><i class="bi bi-telephone"></i>
+                Contacto</a>
+        </div>
+    </div>
+
+    <div class="content">
+        <header>
+            <h1>Verdulería - Come Bien</h1>
+            <p>¡Bienvenido a Come Bien, tu verdulería de confianza!</p>
+            <p>Dirección: Provincia de Guanacaste, Cañas </p>
+        </header>
+
+        <div class="row justify-content-center">
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="imagenes/3.jpg" class="card-img-top" alt="Frutas">
+                    <div class="card-body">
+                        <p class="card-text">Variedad de Frutas</p>
+                        <a href="Pagina1.html" class="btn btn-primary add-to-cart-btn">Frutas</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="imagenes/1.jpg" class="card-img-top" alt="Verduras">
+                    <div class="card-body">
+                        <p class="card-text">Variedad de Verduras</p>
+                        <a href="pagina2.html" class="btn btn-primary add-to-cart-btn">Verduras</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="imagenes/2.jpg" class="card-img-top" alt="Hortalizas">
+                    <div class="card-body">
+                        <p class="card-text">Variedad de Hortalizas</p>
+                        <a href="pagina3.html" class="btn btn-primary add-to-cart-btn">Hortalizas</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="featured-products">
+            <h2 style="margin-bottom: 20px;">Productos Destacados</h2>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="circle-card">
+                        <img src="imagenes/fresas.jpg" alt="Hortalizas">
+                        <div class="circle-card-content">
+                            <p class="card-text">Fresas</p>
+                            <p class="card-text">Precio: ₡4500</p>
+                            <a href="#" class="btn btn-primary add-to-cart-btn">Agregar al carrito</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="circle-card">
+                        <img src="imagenes/papas.jpg" alt="Hortalizas">
+                        <div class="circle-card-content">
+                            <p class="card-text">Papas</p>
+                            <p class="card-text">Precio: ₡2500</p>
+                            <a href="#" class="btn btn-primary add-to-cart-btn">Agregar al carrito</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="circle-card">
+                        <img src="imagenes/zanahorias.jpg" alt="Hortalizas">
+                        <div class="circle-card-content">
+                            <p class="card-text">Zanahorias</p>
+                            <p class="card-text">Precio: ₡2000</p>
+                            <a href="#" class="btn btn-primary add-to-cart-btn">Agregar al carrito</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>

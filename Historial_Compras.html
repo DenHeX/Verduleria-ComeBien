@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial de Compras</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #e3f2e8;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .card {
+            background-color: #d9fada;
+            margin-bottom: 20px;
+        }
+
+        .card-header {
+            background-color: #76b752;
+            color: white;
+        }
+
+        .purchase {
+            margin-bottom: 20px;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        label {
+            color: #333;
+        }
+
+        .btn-primary-g {
+            background-color: #76b752;
+            border: 1px solid #76b752;
+        }
+
+        .btn-primary:hover {
+            background-color: #45a050;
+            border: 1px solid #45a050;
+        }
+
+        .btn-dark {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 2;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: -250px;
+            background-color: #76b752;
+            padding-top: 30px;
+            color: white;
+            text-align: center;
+            transition: 0.5s;
+        }
+
+        .sidebar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+            text-align: left;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+
+        .sidebar a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidebar-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .sidebar a.btn-primary {
+            width: 100%;
+            margin-top: 5px;
+        }
+
+        .card {
+            background-color: #d9fada;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .circle-card {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+        }
+
+        .purchase-details {
+            display: none;
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/xxxxxxxxxx.js" crossorigin="anonymous"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var topButtons = document.querySelector('.top-buttons');
+            var prevScrollPos = window.pageYOffset;
+
+            window.onscroll = function () {
+                var currentScrollPos = window.pageYOffset;
+
+                if (prevScrollPos > currentScrollPos) {
+                    topButtons.style.top = "10px";
+                } else {
+                    topButtons.style.top = "-60px";
+                }
+
+                prevScrollPos = currentScrollPos;
+            };
+        });
+
+        function toggleSidebar() {
+            var sidebar = document.getElementById('sidebar');
+            var content = document.querySelector('.content');
+
+            if (sidebar.style.left === '0px') {
+                sidebar.style.left = '-250px';
+                content.style.marginLeft = '0';
+            } else {
+                sidebar.style.left = '0px';
+                content.style.marginLeft = '250px';
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="text-center">
+            <a href="index.html">
+                <img src="imagenes/Logo.png" alt="Logo de la página" style="width: 100px; height: 100px;">
+            </a>
+            <h2>Come Bien</h2>
+        </div>
+    </header>
+    <button class="btn btn-dark" onclick="toggleSidebar()">☰</button>
+
+    <div class="sidebar" id="sidebar">
+        <p style="margin-bottom: 0px; font-size: 24px;">Verdulería</p>
+        <h2 style="margin-bottom: 30px;">"Come Bien"</h2>
+        <a href="index.html" class="btn btn-primary-g" style="font-size: 22px;"><i class="bi bi-house"></i>
+            Inicio</a>
+        <a href="Pagina1.html" class="btn btn-primary-g" style="font-size: 22px;">Frutas</a>
+        <a href="pagina2.html" class="btn btn-primary-g" style="font-size: 22px;">Verduras</a>
+        <a href="pagina3.html" class="btn btn-primary-g" style="font-size: 22px;">Vegetales</a>
+        <a href="pagina4.html" class="btn btn-primary-g" style="font-size: 22px;">Hortalizas</a>
+        <div class="sidebar-bottom">
+            <a href="carrito.html" class="btn btn-primary-g" style="font-size: 22px;"><i class="bi bi-cart3"></i>
+                Carrito</a>
+            <a href="Perfil.html" class="btn btn-primary-g" style="font-size: 22px;"><i class="bi bi-person"></i>
+                Cuenta</a>
+            <a href="Contacto.html" class="btn btn-primary-g" style="font-size: 22px;"><i class="bi bi-telephone"></i>
+                Contacto</a>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="purchase-list">
+                <div class="purchase">
+                    <h5 class="purchase-title">N°. de Pedido: #12345 <button class="btn btn-primary float-end" onclick="toggleDetails('purchase1')">Ver detalles</button></h5>
+                    <div class="purchase-details" id="purchase1">
+                        <div>
+                            <a href="Reclamaciones.html" class="btn btn-primary mt-2 float-end">Realizar Reclamación</a>
+                            <p>
+                                <strong>Productos:</strong>
+                                <br>
+                                Cebolla - 2 kilogramos - ₡8000
+                                <br>
+                                Zanahoria - 3 kilogramos - ₡12000
+                                <br>
+                                Repollo - 1 unidad - ₡5000
+                                <br>
+                                Chile dulce - 4 unidades - ₡10000
+                            </p>
+                            <p>
+                                <strong>Fecha del Pedido:</strong> 10/11/2023
+                                <br>
+                                <strong>Hora de Compra:</strong> 11:00
+                                <br>
+                                <strong>Hora de Entrega:</strong> 11:45
+                                <br>
+                                <strong>Monto Total:</strong> ₡35000
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="purchase">
+                    <h5 class="purchase-title">N°. de Pedido: #67891 <button class="btn btn-primary float-end" onclick="toggleDetails('purchase2')">Ver detalles</button></h5>
+                    <div class="purchase-details" id="purchase2">
+                        <div>
+                            <a href="Reclamaciones.html" class="btn btn-primary mt-2 float-end">Realizar Reclamación</a>
+                            <p>
+                                <strong>Productos:</strong>
+                                <br>
+                                Lechuga - 3 unidades - ₡15000
+                                <br>
+                                Tomate - 2 kilogramos - ₡20000
+                            </p>
+                            <p>
+                                <strong>Fecha del Pedido:</strong> 15/11/2023
+                                <br>
+                                <strong>Hora de Compra:</strong> 12:30
+                                <br>
+                                <strong>Hora de Entrega:</strong> 13:15
+                                <br>
+                                <strong>Monto Total:</strong> ₡35000
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="purchase">
+                    <h5 class="purchase-title">N°. de Pedido: #67892 <button class="btn btn-primary float-end"
+                            onclick="toggleDetails('purchase3')">Ver detalles</button></h5>
+                    <div class="purchase-details" id="purchase3">
+                        <div>
+                            <a href="Reclamaciones.html" class="btn btn-primary mt-2 float-end">Realizar Reclamación</a>
+                            <p>
+                                <strong>Productos:</strong>
+                                <br>
+                                Manzanas - 5 kilogramos - ₡25000
+                                <br>
+                                Chile Dulce - 4 unidades - ₡10000
+                                <br>
+                                Zanahorias - 1 kilogramo - ₡5000
+                            </p>
+                            <p>
+                                <strong>Fecha del Pedido:</strong> 18/11/2023
+                                <br>
+                                <strong>Hora de Compra:</strong> 08:45
+                                <br>
+                                <strong>Hora de Entrega:</strong> 09:30
+                                <br>
+                                <strong>Monto Total:</strong> ₡40000
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleDetails(purchaseId) {
+            const purchaseDetails = document.getElementById(purchaseId);
+            if (purchaseDetails.style.display === 'none') {
+                purchaseDetails.style.display = 'block';
+            } else {
+                purchaseDetails.style.display = 'none';
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <header>
+    </header>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Nuevo Producto - Come Bien</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: 'Arial', sans-serif;
+        }
+
+        label {
+            color: #333;
+        }
+
+        .btn-primary:hover {
+            background-color: #45a050;
+            border: 1px solid #45a050;
+        }
+        body {
+            background-color: #f5f5f5;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        label {
+            color: #333;
+        }
+
+        .btn-primary {
+            background-color: #76b752;
+            border: 1px solid #76b752;
+        }
+
+        .btn-primary:hover {
+            background-color: #45a050;
+            border: 1px solid #45a050;
+        }
+
+        .btn-dark {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 2;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: -250px;
+            background-color: #76b752;
+            padding-top: 30px;
+            color: white;
+            text-align: center;
+            transition: 0.5s;
+        }
+
+        .sidebar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+            text-align: left;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+
+        .sidebar a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidebar-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .sidebar a.btn-primary {
+            width: 100%;
+            margin-top: 5px;
+        }
+
+        .card {
+            background-color: #d9fada;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .circle-card {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+        }
+    </style>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var topButtons = document.querySelector('.top-buttons');
+                var prevScrollPos = window.pageYOffset;
+    
+                window.onscroll = function () {
+                    var currentScrollPos = window.pageYOffset;
+    
+                    if (prevScrollPos > currentScrollPos) {
+                        topButtons.style.top = "10px";
+                    } else {
+                        topButtons.style.top = "-60px";
+                    }
+    
+                    prevScrollPos = currentScrollPos;
+                };
+            });
+    
+            function toggleSidebar() {
+                var sidebar = document.getElementById('sidebar');
+                var content = document.querySelector('.content');
+    
+                if (sidebar.style.left === '0px') {
+                    sidebar.style.left = '-250px';
+                    content.style.marginLeft = '0';
+                } else {
+                    sidebar.style.left = '0px';
+                    content.style.marginLeft = '250px';
+                }
+            }
+        </script>
+</head>
+
+<body>
+    <header>
+        <div class="text-center">
+            <a href="Pagina_Principal.html">
+                <img src="imagenes/Logo.png" alt="Logo de la página" style="width: 100px; height: 100px;">
+            </a>
+            <h2>Come Bien</h2>
+        </div>
+    </header>
+    <button class="btn btn-dark" onclick="toggleSidebar()">☰</button>
+
+    <div class="sidebar" id="sidebar">
+        <p style="margin-bottom: 0px; font-size: 24px;">Verdulería</p>
+        <h2 style="margin-bottom: 30px;">"Come Bien"</h2>
+        <a href="Pagina_Principal.html" class="btn btn-primary" style="font-size: 22px;"><i class="bi bi-house"></i>
+            Inicio</a>
+        <a href="Pagina1.html" class="btn btn-primary" style="font-size: 22px;">Frutas</a>
+        <a href="pagina2.html" class="btn btn-primary" style="font-size: 22px;">Verduras</a>
+        <a href="pagina3.html" class="btn btn-primary" style="font-size: 22px;">Vegetales</a>
+        <a href="pagina4.html" class="btn btn-primary" style="font-size: 22px;">Hortalizas</a>
+        <div class="sidebar-bottom">
+            <a href="carrito.html" class="btn btn-primary" style="font-size: 22px;"><i class="bi bi-cart3"></i>
+                Carrito</a>
+            <a href="Perfil.html" class="btn btn-primary" style="font-size: 22px;"><i class="bi bi-person"></i>
+                Cuenta</a>
+            <a href="Contacto.html" class="btn btn-primary" style="font-size: 22px;"><i class="bi bi-telephone"></i>
+                Contacto</a>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <h2 class="mb-4">Agregar Nuevo Producto</h2>
+        <form>
+            <div class="form-group">
+                <label for="nombre">Nombre del Producto:</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre del producto"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="descripcion">Descripción:</label>
+                <textarea class="form-control" id="descripcion" placeholder="Ingrese la descripción del producto"
+                    rows="3" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="precio">Precio:</label>
+                <input type="number" class="form-control" id="precio" placeholder="Ingrese el precio del producto"
+                    step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label for="tipo">Tipo de Producto:</label>
+                <select class="form-control" id="tipo" required>
+                    <option value="fruta">Fruta</option>
+                    <option value="verdura">Verdura</option>
+                    <option value="hortaliza">Hortaliza</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="imagen">Imagen del Producto:</label>
+                <input type="file" class="form-control-file" id="imagen" accept="image/*" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Agregar Producto</button>
+        </form>
+    </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
