@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu cuenta</title>
+    <!-- Enlaces a los estilos de Bootstrap y Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-rI5p+ss5wX8G2H6O0zOv0D7yYaz2cseFgihWZ3h5PHWiDS5LXXY2OrON6zfv5uPCeN02+rNA5
+        K3S2f0pPf0km5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    body {
+        background-color: #f5f5f5;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .container {
+        margin-top: 50px;
+    }
+
+    label {
+        color: #333;
+    }
+
+    .btn-primary {
+        background-color: #76b752;
+        border: 1px solid #76b752;
+    }
+
+    .btn-primary:hover {
+        background-color: #45a050;
+        border: 1px solid #45a050;
+    }
+
+    .btn-dark {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 2;
+    }
+
+    .sidebar {
+        height: 100%;
+        width: 250px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: -250px;
+        background-color: #76b752;
+        padding-top: 30px;
+        color: white;
+        text-align: center;
+        transition: 0.5s;
+    }
+
+    .sidebar a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 18px;
+        color: white;
+        display: block;
+        transition: 0.3s;
+        text-align: left;
+        margin-bottom: 5px;
+        margin-top: 5px;
+    }
+
+    .sidebar a:hover {
+        color: #f1f1f1;
+    }
+
+    .sidebar-bottom {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    .sidebar a.btn-primary {
+        width: 100%;
+        margin-top: 5px;
+    }
+</style>
+<script src="https://kit.fontawesome.com/xxxxxxxxxx.js" crossorigin="anonymous"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var topButtons = document.querySelector('.top-buttons');
+        var prevScrollPos = window.pageYOffset;
+
+        window.onscroll = function () {
+            var currentScrollPos = window.pageYOffset;
+
+            if (prevScrollPos > currentScrollPos) {
+                topButtons.style.top = "10px";
+            } else {
+                topButtons.style.top = "-60px";
+            }
+
+            prevScrollPos = currentScrollPos;
+        };
+    });
+
+    function toggleSidebar() {
+        var sidebar = document.getElementById('sidebar');
+        var content = document.querySelector('.content');
+
+        if (sidebar.style.left === '0px') {
+            sidebar.style.left = '-250px';
+            content.style.marginLeft = '0';
+        } else {
+            sidebar.style.left = '0px';
+            content.style.marginLeft = '250px';
+        }
+    }
+</script>
+
+<body style="background-color: #e3f2e8;">
+    <header>
+        <div class="text-center">
+            <img src="imagenes/Logo.png" alt="Logo de la página" style="width: 100px; height: 100px;">
+            <h2>Come Bien</h2>
+        </div>
+    </header>
+    <button class="btn btn-dark" onclick="toggleSidebar()">☰</button>
+
+    <div class="sidebar" id="sidebar">
+        <p style="margin-bottom: 0px; font-size: 24px;">Verdulería</p>
+        <h2 style="margin-bottom: 30px;">"Come Bien"</h2>
+        <a href="Pagina_Principal.html" class="btn btn-primary" style="font-size: 22px;">Página Principal</a>
+        <a href="Pagina1.html" class="btn btn-primary" style="font-size: 22px;">Frutas</a>
+        <a href="pagina2.html" class="btn btn-primary" style="font-size: 22px;">Verduras</a>
+        <a href="pagina3.html" class="btn btn-primary" style="font-size: 22px;">Hortalizas</a>
+        <div class="sidebar-bottom">
+            <a href="carrito.html" class="btn btn-primary" style="font-size: 22px;"><i class="bi bi-cart3"></i>
+                Carrito</a>
+            <a href="Contacto.html" class="btn btn-primary" style="font-size: 22px;"><i class="bi bi-telephone"></i>
+                Contacto</a>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card" style="background-color: #d9fada;">
+                    <div class="card-header" style="background-color: #76b752;">
+                        <h3 class="text-center text-white">Tu cuenta</h3>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Correo Electrónico</label>
+                                <input type="email" class="form-control" id="email" value="cliente@example.com"
+                                    disabled>
+                            </div>
+                            <div class="mb-3">
+                                <label for="fullName" class="form-label">Nombre Completo</label>
+                                <input type="text" class="form-control" id="fullName" value="Nombre Apellido" disabled>
+                            </div>
+                            <div class="mb-3">
+                                <label for="address" class="form-label">Dirección</label>
+                                <input type="text" class="form-control" id="address" value="Dirección del Cliente"
+                                    disabled>
+                            </div>
+                            <div class="d-grid mb-3">
+                                <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                                    data-bs-target="#changeDataModal">
+                                    Actualizar Información
+                                </button>
+                            </div>
+                            <div class="d-grid mb-3">
+                                <a href="Historial_Compras.html" class="btn btn-primary">
+                                    Historial de Compras
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para cambiar datos -->
+    <div class="modal fade" id="changeDataModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Actualizar Información</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="changeDataForm">
+                        <div class="mb-3">
+                            <label for="newEmail" class="form-label">Nuevo Correo Electrónico</label>
+                            <input type="email" class="form-control" id="newEmail">
+                        </div>
+                        <div class="mb-3">
+                            <label for="newFullName" class="form-label">Nuevo Nombre Completo</label>
+                            <input type="text" class="form-control" id="newFullName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="newAddress" class="form-label">Nueva Dirección</label>
+                            <input type="text" class="form-control" id="newAddress">
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts de Bootstrap y jQuery -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Función para actualizar los datos en la sección superior
+            $('#changeDataForm').submit(function (event) {
+                event.preventDefault();
+                // Obtener los nuevos valores de los campos del formulario
+                var newEmail = $('#newEmail').val();
+                var newFullName = $('#newFullName').val();
+                var newAddress = $('#newAddress').val();
+
+                // Verificar si los campos no están vacíos
+                if (newEmail !== '' && newFullName !== '' && newAddress !== '') {
+                    // Actualizar los campos superiores con los nuevos valores
+                    $('#email').val(newEmail);
+                    $('#fullName').val(newFullName);
+                    $('#address').val(newAddress);
+
+                    // Cerrar el modal después de guardar los cambios
+                    $('#changeDataModal').modal('hide');
+                } else {
+                    // Mostrar un mensaje de error si algún campo está vacío
+                    alert('Por favor, completa todos los campos para guardar los cambios.');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
